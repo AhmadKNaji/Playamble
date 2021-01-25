@@ -1,0 +1,56 @@
+<h3>ChatBot Success Rate</h3>
+<nb-card>
+    <nb-card-body>
+        <div class="messageType">
+            <nb-select [(ngModel)]='messageType' placeholder='Message Type' fullWidth (selectedChange)='onMessageType($event)'> 
+                <nb-option value = 'Incidents'>Incidents</nb-option>
+                <nb-option value = 'Services'>Services</nb-option>
+                <nb-option value = 'Messages'>All</nb-option>
+            </nb-select>
+        </div>
+        <div class="channelSelect mt-3">
+            <nb-select [(ngModel)]="channel" placeholder="Select Channel" fullWidth
+                (selectedChange)="onSelectChoice($event)">
+                <nb-option value="all bots">All Bots</nb-option>
+                <nb-option value="teams Bot">Teams Bot</nb-option>
+                <nb-option value="web Bot">Web Bot</nb-option>
+                <nb-option value="whatsapp Bot">Whatsapp Bot</nb-option>
+                <nb-option value="email Bot">Email Bot</nb-option>
+            </nb-select>
+        </div>
+        <div class="rangePicker mt-3">
+            <input fullWidth nbInput placeholder="Pick Date Range" [nbDatepicker]="formpicker" [(ngModel)]='startEnd'>
+            <nb-rangepicker #formpicker (rangeChange)='refresh()' ></nb-rangepicker>
+        </div>
+        
+    </nb-card-body>
+</nb-card>
+
+<div *ngIf='messageType != "" && channel != "" '  class="graphs">
+    <div class="row">
+        <div class="col-lg-6">
+            <nb-card>
+                <nb-card-header>Top Success</nb-card-header>
+                <nb-card-body>
+                    <div echarts [options]="pieTopOptions" class="echart"></div>
+                </nb-card-body>
+            </nb-card>
+        </div>
+        <div class="col-lg-6">
+            <nb-card>
+                <nb-card-header>Top Failed</nb-card-header>
+                <nb-card-body>
+                    <div echarts [options]="pieFailOptions" class="echart"></div>
+                </nb-card-body>
+            </nb-card>
+        </div>
+        <div class="col-lg-12">
+            <nb-card>
+                <nb-card-header>{{messageType}} Success Rate</nb-card-header>
+                <nb-card-body>
+                    <div echarts [options]="areaStackOptions" class="echart"></div>
+                </nb-card-body>
+            </nb-card>
+        </div>
+    </div>
+</div>

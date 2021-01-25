@@ -1,0 +1,52 @@
+<nb-card>
+  <nb-card-body>
+    <div class="mt-3">
+      <form [formGroup]="form">
+        <div formArrayName="array">
+          <div
+            *ngFor="let el of array?.controls; let i = index"
+            [formGroupName]="i"
+          >
+            <div class="mt-3">
+              <input
+                [fullWidth]='true'
+                type="text"
+                nbInput
+                placeholder="Question"
+                formControlName="message"
+                (keyup)="onKey($event, i)"
+              />
+              <input
+                class="mt-3"
+                [fullWidth]='true'
+                type="text"
+                nbInput
+                placeholder="Reference"
+                formControlName="ref"
+                (keyup)="onRef($event, i)"
+              />
+              <div class="btn-group float-right mt-3 mb-3">
+                <button
+                  nbButton
+                  class="mr-2"
+                  status="primary"
+                  (click)="addToArray()"
+                >
+                  <nb-icon icon="plus"></nb-icon>
+                </button>
+                <button
+                  nbButton
+                  status="danger"
+                  (click)="deleteFromArray(i)"
+                  (mouseover)="log(i)"
+                >
+                  <nb-icon icon="trash"></nb-icon>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </nb-card-body>
+</nb-card>

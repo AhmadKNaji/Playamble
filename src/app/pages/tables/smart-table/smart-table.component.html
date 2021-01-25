@@ -1,0 +1,14 @@
+<nb-card>
+  <nb-card-header>
+    Tickets
+  </nb-card-header>
+
+  <nb-card-body>
+    <div class="d-flex">
+      <input nbInput #search class="search mb-3" type="text" placeholder="Search..."
+        (keydown.enter)="onSearch(search.value)">
+    </div>
+    <ng2-smart-table [settings]="settings" [source]="source">
+    </ng2-smart-table>
+  </nb-card-body>
+</nb-card>
