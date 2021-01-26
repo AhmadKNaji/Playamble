@@ -1,55 +1,47 @@
-<nb-card>
-  <nb-card-body>
-    <nb-select
-      placeholder="Select from the following options..."
-      [fullWidth]="true"
-      [(ngModel)]="selected"
-    >
-      <nb-option value="service-request-replace-laptop"
-        >Service request replace laptop</nb-option
-      >
-      <nb-option value="service-request-secondary-email"
-        >Service request secondary email</nb-option
-      >
-      <nb-option value="service-request-distribution-email"
-        >Service request distribution email</nb-option
-      >
-      <nb-option value="incident-request-VPN">Incident request VPN</nb-option>
-      <nb-option value="incident-request-wifi">Incident request wifi</nb-option>
-      <nb-option value="incident-request-email"
-        >Incident request email</nb-option
-      >
-      <nb-option value="wifi-access-less-than-24hrs"
-        >Wifi access less than 24hrs</nb-option
-      >
-      <nb-option value="generic-message">Generic message</nb-option>
-    </nb-select>
-  </nb-card-body>
-</nb-card>
+<div>
+  <nb-card>
+    <nb-card-header>Add New Credit Card</nb-card-header>
+    <nb-card-body>
+      <input
+        nbInput
+        type="text"
+        fullWidth
+        placeholder="CCNB"
+        [(ngModel)]="ccnb"
+      />
+      <input
+        nbInput
+        class="mt-3"
+        type="text"
+        fullWidth
+        placeholder="Expiry Date"
+        [nbDatepicker]="dateTimePicker"
+        [(ngModel)]="expirydate"
+      /><nb-datepicker #dateTimePicker></nb-datepicker>
 
-<div
-  *ngIf="
-    selected == 'service-request-replace-laptop' ||
-    selected == 'service-request-secondary-email' ||
-    selected == 'service-request-distribution-email' ||
-    selected == 'incident-request-VPN' ||
-    selected == 'incident-request-wifi' ||
-    selected == 'incident-request-email'
-  "
->
-<nb-toggle (checkedChange)='change($event)'>Message {{btnStatus}}</nb-toggle>
-
-  <ngx-message></ngx-message>
+      <nb-form-field class="mt-3">
+        <input
+          [type]="getInputType()"
+          nbInput
+          fullWidth
+          placeholder="ccv"
+          [(ngModel)]="ccv"
+          maxlength="3"
+        />
+        <button nbSuffix nbButton ghost (click)="toggleShowCcv()">
+          <nb-icon
+            [icon]="showCcv ? 'eye-outline' : 'eye-off-2-outline'"
+            pack="eva"
+            [attr.aria-label]="showCcv ? 'hide password' : 'show password'"
+          >
+          </nb-icon>
+        </button>
+      </nb-form-field>
+    </nb-card-body>
+  </nb-card>
 </div>
 
-<div *ngIf="selected == 'wifi-access-less-than-24hrs'">
-<nb-toggle [(ngModel)]='status' (checkedChange)='change($event)'>Message {{btnStatus}}</nb-toggle>
-  <ngx-wifi-message></ngx-wifi-message>
+<div class="btn-group float-right">
+  <button class="mr-2" nbButton status="danger" (click)="back()">Back</button>
+  <button nbButton (click)="onSubmit()" status="primary">Submit</button>
 </div>
-
-<div *ngIf="selected == 'generic-message'">
-  <nb-toggle [(ngModel)]='status' (checkedChange)='change($event)'>Message {{btnStatus}}</nb-toggle>
-  <ngx-generic-message></ngx-generic-message>
-</div>
-
-<button nbButton (click)="validate()" status="primary">Validate</button>

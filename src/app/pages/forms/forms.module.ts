@@ -24,9 +24,6 @@ import {
   ReactiveFormsModule,
 } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
-import { MessageComponent } from './message/message.component';
-import { WifiMessageComponent } from './wifi-message/wifi-message.component';
-import { GenericMessageComponent } from './generic-message/generic-message.component';
 import { LoginComponentComponent } from './login/login-component/login-component.component';
 
 @NgModule({
@@ -54,9 +51,6 @@ import { LoginComponentComponent } from './login/login-component/login-component
   declarations: [
     FormsComponent,
     FormLayoutsComponent,
-    MessageComponent,
-    WifiMessageComponent,
-    GenericMessageComponent,
     LoginComponentComponent,
   ],
 })

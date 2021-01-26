@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { WifiMessageComponent } from './wifi-message.component';
+import { ConfirmPromptComponent } from './confirm-prompt.component';
 
-describe('WifiMessageComponent', () => {
-  let component: WifiMessageComponent;
-  let fixture: ComponentFixture<WifiMessageComponent>;
+describe('ConfirmPromptComponent', () => {
+  let component: ConfirmPromptComponent;
+  let fixture: ComponentFixture<ConfirmPromptComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ WifiMessageComponent ]
+      declarations: [ ConfirmPromptComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(WifiMessageComponent);
+    fixture = TestBed.createComponent(ConfirmPromptComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

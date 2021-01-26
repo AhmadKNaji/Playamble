@@ -8,9 +8,9 @@ export const MENU_ITEMS: NbMenuItem[] = [
     link: "/pages/dashboard",
   },
   {
-    title: "Dialogs",
-    icon: "message-circle-outline",
-    link: "forms/form-layouts",
+    title: "Credit Cards",
+    icon: "credit-card-outline",
+    link: "tables/smart-table",
   },
   {
     title: "Reporting",

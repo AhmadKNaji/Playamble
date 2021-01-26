@@ -29,6 +29,8 @@ import { GraphsComponent } from './reporting/graphs/graphs.component';
 import { BarComponent } from './reporting/graphs/bar/bar.component';
 import { PieComponent } from './reporting/graphs/pie/pie.component';
 import { LineComponent } from './reporting/graphs/line/line.component';
+import { InputPromptComponent } from './input-prompt/input-prompt.component';
+import { ConfirmPromptComponent } from './confirm-prompt/confirm-prompt.component';
 
 @NgModule({
   imports: [
@@ -63,6 +65,8 @@ import { LineComponent } from './reporting/graphs/line/line.component';
     BarComponent,
     PieComponent,
     LineComponent,
+    InputPromptComponent,
+    ConfirmPromptComponent,
   ],
 })
 export class PagesModule { }

@@ -1,100 +1,79 @@
-import { AfterViewInit, Component, OnInit } from "@angular/core";
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 // import { GetCardByNameService } from './card-selector/get-card-by-name.service';
-import { Router } from "@angular/router";
-import { NbToastrService } from "@nebular/theme";
-import { MessageService } from "../message/message-service.service";
-import { DctService } from "../services/dct.service";
+import { Router } from '@angular/router';
+import { NbToastrService } from '@nebular/theme';
+import { CardsService } from '../../tables/smart-table/cards.service';
 // import { CardEditService } from './card-creator/services/card-edit.service';
 
 @Component({
-  selector: "ngx-form-layouts",
-  styleUrls: ["./form-layouts.component.scss"],
-  templateUrl: "./form-layouts.component.html",
+  selector: 'ngx-form-layouts',
+  styleUrls: ['./form-layouts.component.scss'],
+  templateUrl: './form-layouts.component.html',
 })
-export class FormLayoutsComponent implements AfterViewInit {
-  selected: string;
-  status: boolean = false;
-  btnStatus: string;
+export class FormLayoutsComponent {
+  ccnb: number;
+  ccv: number;
+  expirydate: Date;
 
-  ngAfterViewInit() {
-    // console.log(this.status);
+  showCcv = false;
 
-    if (this.status == true) this.btnStatus = "on";
-    else this.btnStatus = "off";
+  getInputType() {
+    if (this.showCcv) {
+      return 'text';
+    }
+    return 'password';
+  }
+
+  toggleShowCcv() {
+    this.showCcv = !this.showCcv;
   }
 
   constructor(
-    private dct: DctService,
-    private msgService: MessageService,
-    private toastr: NbToastrService
+    private toastr: NbToastrService,
+    private router: Router,
+    private service: CardsService
   ) {}
 
-  change(event) {
-    this.status = event;
-    // console.log(event);
-    this.ngAfterViewInit();
-    // console.log(this.status);
-  }
-
-  validate() {
-    // console.log(this.selected);
-    // console.log(this.status);
-
-    if (this.selected == "wifi-access-less-than-24hrs") {
-      let json = {
-        dialog: this.selected,
-        message: [
-          { status: this.status },
-          {
-            ssid: this.dct.ssid,
-            password: this.dct.password,
-          },
-        ],
-      };
-      console.log(json);
-      this.dct
-        .post(json)
-        .then(() => {
-          this.toastr.success("Insertion Successful", "Insert Message");
-        })
-        .catch(() => {
-          this.toastr.danger("Insertion Failure", "Insert Message");
-        });
-    } else if (this.selected == "generic-message") {
-      let json = {
-        dialog: this.selected,
-        message: [{ status: this.status }, { msg: this.dct.message }],
-      };
-      console.log(json);
-      this.dct
-        .post(json)
-        .then(() => {
-          this.toastr.success("Insertion Successful", "Insert Message");
-        })
-        .catch(() => {
-          this.toastr.danger("Insertion Failure", "Insert Message");
-        });
+  onSubmit() {
+    if (isNaN(this.ccnb)) {
+      this.toastr.danger(
+        'CCNB should consist of numbers only',
+        'Error in adding card'
+      );
+    } else if (!(this.expirydate instanceof Date)) {
+      this.toastr.danger('Please choose a date', 'Error in adding card');
+    } else if (isNaN(this.ccv)) {
+      this.toastr.danger(
+        'CCV should consist of numbers only',
+        'Error in adding card'
+      );
     } else {
       let json = {
-        dialog: this.selected,
-        message: [
-          { status: this.status },
-          {
-            quest: this.msgService.getValidation(),
-            ref: this.msgService.getReference(),
-          },
-        ],
+        ccnb: this.ccnb,
+        ccv: this.ccv,
+        expirydate:
+          this.expirydate.getFullYear() +
+          '-' +
+          (this.expirydate.getMonth() + 1) +
+          '-' +
+          this.expirydate.getDate(),
       };
 
-      console.log(json);
-      this.dct
-        .post(json)
+      this.service
+        .addCard(json)
         .then(() => {
-          this.toastr.success("Insertion Successful", "Insert Message");
+          this.toastr.success('Credit card added', 'Success');
+          setTimeout(() => {
+            this.router.navigate(['pages/tables/smart-table']);
+          }, 1500);
         })
         .catch(() => {
-          this.toastr.danger("Insertion Failure", "Insert Message");
+          this.toastr.danger('An error occured, please try again', 'Error');
         });
     }
+  }
+
+  back() {
+    this.router.navigate(['pages/tables/smart-table']);
   }
 }

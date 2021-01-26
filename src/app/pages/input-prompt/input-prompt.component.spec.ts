@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GenericMessageComponent } from './generic-message.component';
+import { InputPromptComponent } from './input-prompt.component';
 
-describe('GenericMessageComponent', () => {
-  let component: GenericMessageComponent;
-  let fixture: ComponentFixture<GenericMessageComponent>;
+describe('InputPromptComponent', () => {
+  let component: InputPromptComponent;
+  let fixture: ComponentFixture<InputPromptComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GenericMessageComponent ]
+      declarations: [ InputPromptComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GenericMessageComponent);
+    fixture = TestBed.createComponent(InputPromptComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
