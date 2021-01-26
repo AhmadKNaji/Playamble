@@ -11,7 +11,8 @@ import {
   NbSelectModule,
   NbUserModule,
   NbListModule,
-  NbToggleModule
+  NbToggleModule,
+  NbFormFieldModule
 } from '@nebular/theme';
 import { ClipboardModule } from 'ngx-clipboard';
 import { ThemeModule } from '../../@theme/theme.module';
@@ -26,6 +27,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { MessageComponent } from './message/message.component';
 import { WifiMessageComponent } from './wifi-message/wifi-message.component';
 import { GenericMessageComponent } from './generic-message/generic-message.component';
+import { LoginComponentComponent } from './login/login-component/login-component.component';
 
 @NgModule({
   imports: [
@@ -46,7 +48,8 @@ import { GenericMessageComponent } from './generic-message/generic-message.compo
     ngFormsModule,
     ReactiveFormsModule,
     NgSelectModule,
-    NbToggleModule
+    NbToggleModule,
+    NbFormFieldModule
   ],
   declarations: [
     FormsComponent,
@@ -54,6 +57,7 @@ import { GenericMessageComponent } from './generic-message/generic-message.compo
     MessageComponent,
     WifiMessageComponent,
     GenericMessageComponent,
+    LoginComponentComponent,
   ],
 })
 export class FormsModule { }

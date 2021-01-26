@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Ubility</title>
+    <title>Playamble</title>
 
     <base href="/" />
 
@@ -13,22 +13,7 @@
 
   <body>
     <ngx-app>
-      <!-- <script src="https://unpkg.com/markdown-it@8.4.0/dist/markdown-it.min.js"></script> -->
-      <!-- <script src="https://unpkg.com/monaco-editor@0.17.1/min/vs/loader.js"></script> -->
-      <!-- <script src="http://test.ubilityai.systems:3000/img/acd.min.js"></script> -->
-      <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-      <script type="text/javascript">
-        // var cardName;
-        // var designer;
-        // var fromEdit;
-        // var cardPayload = { card: "" };
-        // window.onload = function () {
-        //   require.config({ paths: { 'vs': 'https://unpkg.com/monaco-editor@0.17.1/min/vs' } });
-        //   require(['vs/editor/editor.main'], function () {
-        //     designer.monacoModuleLoaded();
-        //   });
-        // };
-      </script>
+      
     </ngx-app>
 
     <style>
@@ -62,56 +47,6 @@
         }
       }
 
-      /* .acd-icon-preview{
-      width: 0;
-      display: none;
-      position: absolute;
-    } */
-
-      .chooseImage {
-        background-color: #3366ff !important;
-        color: white;
-        margin-right: 10px;
-      }
-
-      .acd-palette-item:nth-child(10),
-      .acd-palette-category:nth-child(12),
-      .acd-palette-item:nth-child(13),
-      .acd-palette-item:nth-child(14),
-      .acd-palette-item:nth-child(15),
-      .acd-palette-item:nth-child(16),
-      .acd-palette-item:nth-child(17),
-      .acd-palette-item:nth-child(19),
-      .acd-palette-item:last-child {
-        visibility: hidden;
-        height: 0;
-        padding: 0;
-      }
-
-      .save {
-        background-color: #00d68f !important;
-        color: white;
-        margin-left: 10px;
-      }
-
-      .cancel {
-        color: white;
-        background-color: #ff708d !important;
-      }
-
-      .acd-toolbar-separator:last-of-type {
-        flex-grow: 1;
-      }
-
-      /* .acd-toolbar-separator:first-of-type {
-      width: 0;
-      visibility: hidden;
-    } */
-
-      #toolbarHost > div:first-child {
-        width: 100%;
-      }
-
       .spinner {
         position: fixed;
         top: 0;
@@ -137,10 +72,6 @@
         animation: spin 2s linear infinite;
       }
 
-      /* .nb-theme-default nb-layout .layout .layout-container .content .columns nb-layout-column {
-      padding: 0;
-    } */
-
       .spinner div:first-child:after,
       .spinner div:first-child:before {
         content: "";
@@ -157,14 +88,7 @@
         -webkit-animation: spin 3s linear infinite;
         animation: spin 3s linear infinite;
       }
-      /* .acd-icon-copy{
-      visibility: hidden;
-      width: 0;
-    }
-    .acd-toolbar-choicePicker{
-      visibility: hidden;
-      width: 0;
-    } */
+
       .spinner div:first-child:after {
         top: 15px;
         left: 15px;

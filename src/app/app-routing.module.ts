@@ -4,11 +4,9 @@ import {
   NbAuthComponent,
   NbLoginComponent,
   NbLogoutComponent,
-  NbRegisterComponent,
-  NbRequestPasswordComponent,
-  NbResetPasswordComponent,
 } from '@nebular/auth';
 import { AuthGuardService } from './auth-guard.service';
+import { LoginComponentComponent } from './pages/forms/login/login-component/login-component.component';
 
 export const routes: Routes = [
   {
@@ -35,24 +33,16 @@ export const routes: Routes = [
       },
       {
         path: 'register',
-        component: NbRegisterComponent,
+        component: LoginComponentComponent,
       },
       {
         path: 'logout',
         component: NbLogoutComponent,
       },
-      {
-        path: 'request-password',
-        component: NbRequestPasswordComponent,
-      },
-      {
-        path: 'reset-password',
-        component: NbResetPasswordComponent,
-      },
     ],
   },
-  { path: '', redirectTo: 'auth', pathMatch: 'full' },
-  { path: '**', redirectTo: 'auth' },
+  { path: '', redirectTo: 'auth/login', pathMatch: 'full' },
+  { path: '**', redirectTo: 'auth/login' },
 ];
 
 const config: ExtraOptions = {
@@ -63,5 +53,4 @@ const config: ExtraOptions = {
   imports: [RouterModule.forRoot(routes, config)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {
-}
+export class AppRoutingModule {}

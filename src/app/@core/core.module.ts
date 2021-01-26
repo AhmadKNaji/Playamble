@@ -57,7 +57,7 @@ export const NB_CORE_PROVIDERS = [
           key: "token",
         },
 
-        baseEndpoint: "http://test.ubilityai.systems:3000/user",
+        baseEndpoint: "http://localhost:4000/user",
         login: {
           redirect: {
             success: "/pages/dashboard",
