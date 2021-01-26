@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MessageFluxComponent } from './message-flux.component';
+import { UsersTableComponent } from './users-table.component';
 
-describe('MessageFluxComponent', () => {
-  let component: MessageFluxComponent;
-  let fixture: ComponentFixture<MessageFluxComponent>;
+describe('UsersTableComponent', () => {
+  let component: UsersTableComponent;
+  let fixture: ComponentFixture<UsersTableComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MessageFluxComponent ],
+      declarations: [ UsersTableComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MessageFluxComponent);
+    fixture = TestBed.createComponent(UsersTableComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -23,8 +23,6 @@ import {
   NbSelectModule,
   NbUserModule,
 } from '@nebular/theme';
-import { MessagesComponent } from './reporting/messages/messages.component';
-import { ChatbotSuccessRateComponent } from './reporting/chatbot-success-rate/chatbot-success-rate.component';
 import { GraphsComponent } from './reporting/graphs/graphs.component';
 import { BarComponent } from './reporting/graphs/bar/bar.component';
 import { PieComponent } from './reporting/graphs/pie/pie.component';
@@ -59,8 +57,6 @@ import { ConfirmPromptComponent } from './confirm-prompt/confirm-prompt.componen
   ],
   declarations: [
     PagesComponent,
-    MessagesComponent,
-    ChatbotSuccessRateComponent,
     GraphsComponent,
     BarComponent,
     PieComponent,

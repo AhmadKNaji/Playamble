@@ -15,9 +15,6 @@ import { NgxEchartsModule } from 'ngx-echarts';
 import { ThemeModule } from '../../@theme/theme.module';
 import { DashboardComponent } from './dashboard.component';
 import { FormsModule } from '@angular/forms';
-import { MessageFluxComponent } from './message-flux/message-flux.component';
-import { EarningLiveUpdateChartComponent } from './message-flux/flux-live-update-chart.component';
-import { StatusCardComponent } from './status-card/status-card.component';
 
 @NgModule({
   imports: [
@@ -37,9 +34,6 @@ import { StatusCardComponent } from './status-card/status-card.component';
   ],
   declarations: [
     DashboardComponent,
-    MessageFluxComponent,
-    EarningLiveUpdateChartComponent,
-    StatusCardComponent,
   ],
 })
 export class DashboardModule { }

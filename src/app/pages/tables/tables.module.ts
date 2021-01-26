@@ -19,6 +19,7 @@ import {
 
 import { ThemeModule } from "../../@theme/theme.module";
 import { TablesRoutingModule, routedComponents } from "./tables-routing.module";
+import { UsersTableComponent } from './users-table/users-table.component';
 
 @NgModule({
   imports: [
@@ -41,6 +42,7 @@ import { TablesRoutingModule, routedComponents } from "./tables-routing.module";
   ],
   declarations: [
     ...routedComponents,
+    UsersTableComponent,
   ],
 })
 export class TablesModule {}
