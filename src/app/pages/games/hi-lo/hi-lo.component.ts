@@ -41,6 +41,9 @@ export class HiLoComponent implements OnInit, OnChanges {
 
   change(event) {
     this.chosenCard = event;
+    this.color = 'black';
+    this.prevCard = undefined;
+    this.currentCard = 6;
     for (const el of this.cardData) {
       if (el.ccnb === event) {
         this.id = el.ccid;

@@ -28,6 +28,21 @@
 </div>
 
 <div class="btn-group float-right">
-  <button class="mr-2" nbButton status="danger" (click)="Lo()" [disabled]='this.balance <= 1'>Lo</button>
-  <button nbButton (click)="Hi()" status="success" [disabled]='this.balance <= 1'>Hi</button>
+  <button
+    class="mr-2"
+    nbButton
+    status="danger"
+    (click)="Lo()"
+    [disabled]="this.balance <= 1"
+  >
+    Lo
+  </button>
+  <button
+    nbButton
+    (click)="Hi()"
+    status="success"
+    [disabled]="this.balance <= 1"
+  >
+    Hi
+  </button>
 </div>
