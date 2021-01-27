@@ -21,46 +21,10 @@ import {
   NbWindowModule,
 } from "@nebular/theme";
 import { Ng2SmartTableModule } from "ng2-smart-table";
-import {
-  NbPasswordAuthStrategy,
-  NbAuthModule,
-  NbAuthJWTToken,
-} from "@nebular/auth";
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
-    NbAuthModule.forRoot({
-      strategies: [
-        NbPasswordAuthStrategy.setup({
-          name: "email",
-          token: {
-            class: NbAuthJWTToken,
-            key: "token",
-          },
-
-          baseEndpoint: "http://test.ubilityai.systems:3000/user",
-          login: {
-            redirect: {
-              success: "/tickets",
-              failure: null,
-            },
-            endpoint: "/login",
-            method: "post",
-          },
-
-          register: {
-            redirect: {
-              success: "/login",
-              failure: null,
-            },
-            endpoint: "/register",
-            method: "post",
-          },
-        }),
-      ],
-      forms: {},
-    }),
     BrowserModule,
     Ng2SmartTableModule,
     BrowserAnimationsModule,

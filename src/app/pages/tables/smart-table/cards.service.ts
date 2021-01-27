@@ -11,6 +11,7 @@ export class CardsService {
   GET_URL: string = 'http://localhost:4000/cards/get_cards_by_id';
   DELETE_URL: string = 'http://localhost:4000/cards/delete_card';
   ADD_URL: string = 'http://localhost:4000/cards/add_card';
+  ADD_BALANCE_URL: string = 'http://localhost:4000/cards/add_balance'
 
   constructor(
     private httpClient: HttpClient,
@@ -64,6 +65,21 @@ export class CardsService {
     });
     return this.httpClient
       .post(this.ADD_URL, { data }, { headers: head })
+      .toPromise();
+  }
+
+  public addBalance(data){
+    this.authService.getToken().subscribe((token: NbAuthJWTToken) => {
+      if (token.isValid()) {
+        // TODO: Check Security of token!
+        this.TOKEN = 'Bearer ' + token.getValue();
+      }
+    });
+    const head = new HttpHeaders({
+      Authorization: this.TOKEN,
+    });
+    return this.httpClient
+      .put(this.ADD_BALANCE_URL, { data }, { headers: head })
       .toPromise();
   }
 }

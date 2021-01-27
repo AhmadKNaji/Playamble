@@ -38,6 +38,11 @@ export class SmartTableComponent implements OnInit {
         type: 'string',
         filter: false,
       },
+      balance: {
+        title: 'Balance',
+        type: 'number',
+        filter: false,
+      },
     },
   };
 
@@ -100,6 +105,10 @@ export class SmartTableComponent implements OnInit {
           },
           {
             field: 'exiprydate',
+            search: query,
+          },
+          {
+            field: 'balance',
             search: query,
           },
         ],

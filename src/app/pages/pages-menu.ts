@@ -12,4 +12,23 @@ export const MENU_ITEMS: NbMenuItem[] = [
     icon: "credit-card-outline",
     link: "tables/smart-table",
   },
+  {
+    title: "Shop",
+    icon: "shopping-cart-outline",
+    link: "shop/shop-page",
+  },
+  {
+    title: "Games",
+    icon: "layers-outline",
+    children: [
+      {
+        title: "HiLo",
+        link: "games/hilo",
+      },
+      {
+        title: "Blackjack",
+        link: "games/blackjack",
+      },
+    ],
+  },
 ];
